@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Superstitious numbers
+
+n=1
+while [ "$n" -le 20 ]; do
+	case "$n" in
+		4)
+			echo -e "$n"
+			echo -e "bad luck from China"
+			;;
+		9)
+			echo -e "$n"
+                        echo -e "bad luck from Japan"
+                        ;;
+		17)
+			echo -e "$n"
+                        echo -e "bad luck from Italy"
+                        ;;
+		*)
+			echo -e "$n"
+			;;
+	esac
+
+	n=$((n+1))
+
+done
