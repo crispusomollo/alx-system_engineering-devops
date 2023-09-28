@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# while and if loop in bash
+
+Message="Best School"
+
+n=9
+while [ "$n" -ge 0 ]; do
+	echo -e "$Message"
+	if [ "$n" -eq 1 ]; then
+		echo -e "Hi"
+	fi
+	n="$((n-1))"
+done
