@@ -1,6 +1,6 @@
 include stdlib
 $default_site_loc = '/etc/nginx/sites-available/default'
-$default_site = 'https://raw.githubusercontent.com/osala-eng/alx-system_engineering-devops/master/0x0F-load_balancer/default-site'
+$default_site = 'https://raw.githubusercontent.com/crispusomollo/alx-system_engineering-devops/master/0x0F-load_balancer/default-site'
 
 # Run apt-get update
 exec { 'apt-update':
