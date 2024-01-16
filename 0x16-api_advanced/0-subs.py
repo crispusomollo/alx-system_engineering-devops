@@ -1,16 +1,23 @@
 #!/usr/bin/python3
-
-import requests as r
+"""
+Query Reddit API and return the total number of subscribers
+for a given subreddit
+"""
+import requests
 
 
 def number_of_subscribers(subreddit):
+    """
+        get number of subscribers for a given subreddit
+        return 0 if invalid subreddit given
+    """
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:73.0) \
-        Gecko/20100101 Firefox/73.0"
-    }
-    response = r.get(url, headers=headers, allow_redirects=False)
-    if response.status_code == 404:
+
+    headers = requests.utils.default_headers()
+    headers.update({'User-Agent': 'My User Agent 1.0'})
+
+    r = requests.get(url, headers=headers).json()
+    subscribers = r.get('data', {}).get('subscribers')
+    if not subscribers:
         return 0
-    results = response.json().get("data")
-    return results.get("subscribers")
+    return subscribers
